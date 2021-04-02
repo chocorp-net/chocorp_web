@@ -36,3 +36,6 @@
 # Private stuff
 private/*
 msg/*
+
+# Fuck vi
+**/.*.sw[a-p]
