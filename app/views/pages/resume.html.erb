@@ -1,0 +1,70 @@
+<%= provide(:title, "Resume") %>
+<div id="cv">
+    <h1>Baptiste CHOCOT - <strong>Software/CyberSec Engineer</strong></h1></h1>
+    <h3>Looking for a challenging position at <strong>Neuralink</strong></h3>
+    <hr />
+    <div class="row">
+        <div id="left" class="col-md-3">
+            <div class="row justify-content-center">
+                <%= image_tag("/cv/img/tete.png", id: 'photo', :alt => "Baptiste CHOCOT") %>
+            </div>
+            <div class="row">
+                <h4>Personal information</h4>
+                <div>202-897-7791</div>
+                <p><a href="mailto:baptiste.chocot@gmail.com">baptiste.chocot@gmail.com</a></p>
+                <p>
+                <a href="https://github.com/Chocorean" target="_blank"><%= image_tag("/cv/img/GitHub-Mark-32px.png", class: 'logo', :alt => "GitHub") %></a>
+                    <a href="https://www.root-me.org/?chocot" target="_blank"><img src="https://www.root-me.org/squelettes/img/rblackGrand32.png" alt="RootMe" class="logo"/></a>
+                    <a href="https://linkedin.com/in/baptiste-chocot-82188a149" target="_blank"><img src="https://static.licdn.com/scds/common/u/images/logos/favicons/v1/favicon.ico" alt="LinkedIn" class="logo"/></a>
+                </p>
+            </div>
+            <div class="row">
+              <div class="col-sm-6 col-md-12">
+                <h4>Soft skills</h4>
+                <p>Autonomous</p>
+                <p>Flexible</p>
+                <p>Meticulous</p>
+              </div>
+              <div class="col-sm-6 col-md-12">
+                <h4>Misc</h4>
+                <p><a href="https://clickhouse.tech/" target="_blank">ClickHouse</a> by Yandex</p>
+                <p>Minecraft modding and <a href="http://files.minecraftforge.net/" target="_blank">Forge</a> API</p>
+            </div>
+          </div>
+        </div>
+        <hr class="v-sep" />
+        <div id="right" class="col-md-9">
+            <div class="row">
+                <h4>About me</h4>
+                <p class="job-desc">I'm a French junior engineering currently looking for something new and exciting to do. My main skills are software development and a good base for cyber security. I'm already living in the USA, but I'll need to be sponsored in some way to work with you at <strong>Neuralink</strong>. I would be available starting from July.</p>
+            </div>
+            <div class="row">
+                <h4>Technical skills</h4>
+                <div>todo</div>
+            </div>
+            <div class="row">
+                <h4>Former positions</h4>
+                <div class="row">
+                    <div class="line"><p>Software Engineer</p><p><a href="https://www.nist.gov">NIST</a>, Gaithersburg, MD</p><p>Jan, 5 2020 - Today</p></div>
+                    <p class="job-desc">&emsp;I am member of the team dedicated to the <a href="https://actev.nist.gov/">ActEV challenge</a> sponsored by IARPA. I am responsible for maintenance and development of new features for two projects, an abstract CLI that our partners have to implement, then submit to our pipeline, and a scorer software which evaluates our partners software's performance. Aditionnaly, I had to reimagine the CI for the abstract CLI because it became harder to test. I am also responsible for the generation of some ActEV datasets.</p>
+                </div>
+                <div class="row">
+                    <div class="line"><p>Cyber-security trainee</p><p><a href="https://excellium-services.com/">Excellium Services</a>, Contern, Luxembourg</p><p>March, 01 - September, 30 2019</p></div>
+                    <p class="job-desc">&emsp;The goal of the internship was to create from scratch a data leak orchestration tool, which would store any leaked credential of the company's customers, for monitoring purposes. I designed the software as a web API for ease of use by the other tools of the company. I have used an analytical database called <strong>ClickHouse</strong>, which is currently holding billions of leaked credentials and has crazy fast response times. It is currently part of the firm's monitoring offer.</p>
+                </div>
+            </div>
+            <div class="row">
+                <h4>Education</h4>
+                <div class="row">
+                    <div class="line"><p>IT Engineer/Master Degree - Cyber-security major</p><p><a href="https://telecomnancy.univ-lorraine.fr/">Télécom Nancy</a>, Nancy, France</p><p>2016-2019</p></div>
+                    <p class="job-desc">&emsp;Including 11 months of internship, several group projects, such as an Hex game (and its AI), a mini-rust compiler, mini-<a href="https://nmap.org">nmap</a>, or an <a href="http://urbanloop.univ-lorraine.fr/">UrbanLoop</a> network simulator.</p>
+                </div>
+                <div class="row">
+                    <div class="line"><p>French prep school</p><p><a href="http://www.lycee-benjamin-franklin.fr/php5/spip/">Benjamin Franklin</a>, Orléans, France</p><p>2014-2016</p></div>
+                    <p class="job-desc">&emsp;2-year class preparing a competitive entrance examination to engineering schools.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script> -->

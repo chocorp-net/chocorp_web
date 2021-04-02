@@ -1,0 +1,126 @@
+@font-face {
+    font-family: "cvfont";
+    src: url("/cv/font/Lato-Light.ttf");
+}
+
+#cv {
+    color: rgb(106, 106, 106);
+    font-family: cvfont;
+    margin-left: 15%;
+    width: 70%;
+    text-align: center;
+    background-color: #f6f8fa;
+    padding: .8rem;
+}
+
+.v-sep {
+    display: inherit;
+}
+
+#cv #left {
+    padding-right: 1rem;
+    text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+    .v-sep {
+        display: none;
+    }
+    #cv #left {
+        border-right: 1px solid rgb(64, 64, 64);
+        text-align: right;
+    }
+    #cv #left .row > .col-sm-6:not(:first-child) {
+        padding-top: .5rem;
+    }
+}
+
+#cv #left h4, #cv #right h4 {
+    color:#4CAF50;
+}
+
+#cv #left img {
+    margin-bottom: .5rem;
+}
+
+#cv #left > .row {
+    margin-bottom: .5rem;
+}
+
+#cv #left p {
+    margin-bottom: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#cv #photo {
+    max-width: 256px;
+    border-radius: 128px;
+    padding: 1rem;
+}
+
+#cv .logo {
+    width: 32px;
+}
+
+#cv #right {
+    text-align: left;
+}
+
+#cv #right p {
+    margin-bottom: .5rem;
+}
+
+#cv #right > .row {
+    margin-bottom: .5rem;
+}
+
+#cv #right > .row > .row {
+    margin-bottom: 0.3rem;
+}
+
+#cv h3 {
+    color:#4CAF50;
+}
+
+#cv h3, #cv h4 {
+    font-weight: bolder;
+}
+
+#cv .plain {
+    color: rgb(64, 64, 64);
+    text-decoration: none;
+}
+
+#cv .plain:hover {
+    color: rgb(64, 64, 64);
+    text-decoration: none;
+}
+
+#cv .plain:visited {
+    color: rgb(64, 64, 64);
+    text-decoration: none;
+}
+
+#cv .line {
+    display: flex;
+    justify-content: space-between;
+    color: black;
+}
+
+#cv .line p:first-child {
+    text-decoration: underline;
+}
+
+#cv .line p:nth-child(2) {
+    font-size: 0.7rem;
+}
+
+#cv .line p:nth-child(3) {
+    font-size: 0.7rem;
+}
+
+#cv .job-desc {
+    font-size: 0.8rem;
+    color: rgb(22, 22, 22);
+}

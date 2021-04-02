@@ -1,0 +1,13 @@
+<%= provide(:title, "Mods") %>
+<div id="body-middle">
+  <div id="mods">
+    <h1>Minecraft Mods</h1>
+    <%=
+      buffer = []
+      for mod in @mods do
+        buffer.append(writeModPage(mod))
+      end
+      buffer.join("\n").html_safe
+    %>
+  </div>
+</div>

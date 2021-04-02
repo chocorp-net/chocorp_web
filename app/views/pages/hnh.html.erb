@@ -1,0 +1,22 @@
+<%= provide(:title, 'Feedback') %>
+<div id="body-middle">
+  <h1>Wanna say something? That's the place to be.</h1><hr /><br />
+  <%= form_with url: "/happynothappy", method: :post do |form| %>
+    <div class="form-group row">
+      <div class="offset-sm-2 col-sm-2">
+        <%= form.label :contact, "Email" %>
+      </div>
+      <div class="col-sm-4">
+        <%= form.text_field :contact, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="offset-sm-2 col-sm-6">
+        <%= form.label :content, "Write your comments below" %>
+        <%= form.text_area :content, class: "form-control" %>
+      </div>
+    </div><br />
+    <div class="form-group">
+      <%=form.submit "Send", class: "offset-sm-2" %>
+    </div>
+  <% end %>
