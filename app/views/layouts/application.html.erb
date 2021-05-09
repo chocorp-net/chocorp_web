@@ -47,11 +47,19 @@
             <%= link_to "Home", root_path, :class => "nav-link" + active?('home') %>
           </li>
           <li class="nav-item">
-            <%= link_to "inTeam", inteam_path, :class => "nav-link" + active?('inteam') %>
+            <%= 
+              #link_to "inTeam", inteam_path, :class => "nav-link" + active?('inteam')
+            %>
+            <span class="nav-link">inTeam</span>
           </li>
           <li class="nav-item">
-            <i><%= link_to "crypto_stonks", tqtmemepas_path, :class => "nav-link" + active?('tqtmemepas') %></i>
-          </li>
+            <i>
+              <%=
+              #link_to "crypto_stonks", tqtmemepas_path, :class => "nav-link" + active?('tqtmemepas')
+              %>
+              <span class="nav-link">crypto_stonks</span>
+            </i>
+         </li>
           <li class="nav-item">
             <%= link_to "3d-printer stream", brrr_path, :class => "nav-link" + active?('brrr') %>
           </li>
@@ -71,7 +79,9 @@
         <li class="nav-item">
           <%= link_to "Feedback", happynothappy_path, :class => "nav-link" + active?('hnh') %>
         </li>
-        <li class="nav-link">test</li>
+        <li class="nav-item">
+          <a href="https://www.chocorp.net:8080/" class="nav-link active">Chocoprint</a>
+        </li>
       </ul>
     </header>
     <div class="container-fluid">

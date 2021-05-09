@@ -41,6 +41,7 @@
 
 #cv #left img {
     margin-bottom: .5rem;
+    max-height: 100%;
 }
 
 #cv #left > .row {
@@ -54,7 +55,8 @@
 }
 
 #cv #photo {
-    max-width: 256px;
+    width: 100%;
+    height: 100%;
     border-radius: 128px;
     padding: 1rem;
 }

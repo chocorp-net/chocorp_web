@@ -18,5 +18,11 @@ module Chocorp
     
     # Add compression
     config.middleware.use Rack::Deflater
+
+    # https
+    config.hosts << "www.chocorp.net"
+    config.hosts << "chocorp.net"
+    config.force_ssl = true
+    config.ssl_options = { redirect: { status: 307, port: 443 } }
   end
 end

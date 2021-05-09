@@ -40,7 +40,8 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   # Whitelisting domain
-  config.hosts << "chocorp.net"
-  config.hosts << "www.chocorp.net"
-  config.force_ssl = true
+  #config.hosts << "chocorp.net"
+  #config.hosts << "www.chocorp.net"
+  #config.hosts << "https://www.chocorp.net"
+  #config.force_ssl = true
 end

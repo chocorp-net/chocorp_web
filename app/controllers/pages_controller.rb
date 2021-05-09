@@ -1,15 +1,6 @@
 class PagesController < ApplicationController
   # @ rend les variables visibles pour les vues
-  def home
-  end
-
-  def inteam
-  end
-
-  def tqtmemepas
-  end
-
-  def brrr
+  def nothing
   end
 
   def mcmods
@@ -19,7 +10,7 @@ class PagesController < ApplicationController
     @mods = [am, mc, ms]
   end
 
-  def resume
+  def cv
   end
 
   def hnh
