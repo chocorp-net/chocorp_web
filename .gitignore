@@ -5,32 +5,32 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore bundler config.
-/.bundle
+.bundle
 
 # Ignore the default SQLite database.
-./db/*.sqlite3
-./db/*.sqlite3-journal
-./db/*.sqlite3-*
+db/*.sqlite3
+db/*.sqlite3-journal
+db/*.sqlite3-*
 
 # Ignore all logfiles and tempfiles.
-./log/*
-./tmp/*
+log/*
+tmp/*
 
 # Ignore uploaded files in development.
-./storage/*
-!/storage/.keep
+storage/*
+!storage/.keep
 
-./public/assets
+public/assets
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.
-./config/master.key
+config/master.key
 
-./public/packs
-./public/packs-test
-./node_modules
-./yarn-error.log
-./yarn-debug.log*
+public/packs
+public/packs-test
+node_modules
+yarn-error.log
+yarn-debug.log*
 .yarn-integrity
 
 # Private stuff
@@ -38,4 +38,5 @@ private/*
 msg/*
 
 # Fuck vi
-**/.*.sw[a-p]
+.*.sw[a-p]
+
