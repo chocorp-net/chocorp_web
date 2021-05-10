@@ -1,22 +1,35 @@
 <%= provide(:title, 'Feedback') %>
 <div id="body-middle">
   <h1>Wanna say something? That's the place to be.</h1><hr /><br />
-  <%= form_with url: "/happynothappy", method: :post do |form| %>
-    <div class="form-group row">
+  <%= form_with url: "/happynothappy", id: "feedback_form", method: :post, local: false do |form| %>
+    <div class="row form-group">
       <div class="offset-sm-2 col-sm-2">
-        <%= form.label :contact, "Email" %>
+        <%= form.label :contact, "Email address:" %>
       </div>
-      <div class="col-sm-4">
-        <%= form.text_field :contact, class: "form-control" %>
+      <div class="col-sm-6">
+        <%= form.email_field :contact, class: "form-control", required: true %>
       </div>
     </div>
-    <div class="form-group row">
-      <div class="offset-sm-2 col-sm-6">
-        <%= form.label :content, "Write your comments below" %>
-        <%= form.text_area :content, class: "form-control" %>
+    <br />
+    <div class="row form-group">
+      <div class="offset-sm-2 col-sm-8">
+        <%= form.label :content, "Write your comments below:" %>
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="offset-sm-2 col-sm-8">
+        <%= form.text_area :content, class: "form-control", required: true %>
       </div>
     </div><br />
     <div class="form-group">
-      <%=form.submit "Send", class: "offset-sm-2" %>
+      <%=form.submit "Send", id: "hnh_button", class: "offset-sm-2" %>
     </div>
   <% end %>
+  <div class="row">
+    <div id="xhr_success" class="offset-sm-2">Thanks for your feedback.</div>
+  </div>
+  <div class="row">
+    <div id="xhr_fail" class="offset-sm-2">An issue happened. Please try again later.</div>
+  </div>
+</div>
+<%= javascript_pack_tag "hnh" %>

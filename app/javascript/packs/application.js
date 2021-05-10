@@ -15,7 +15,5 @@ require("channels")
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-// Bootstrap
-require("jquery3")
-require("popper")
-requrie("bootstrap")
+require('jquery')
+

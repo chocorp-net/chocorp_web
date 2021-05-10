@@ -25,9 +25,13 @@
         stylesheet_link_tag 'mcmods'
       when "Resume"
         stylesheet_link_tag 'cv'
+      when "Feedback"
+        stylesheet_link_tag 'hnh'
       end
     end
     %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
   </head>
 
   <body>
@@ -89,6 +93,5 @@
     </div>
     <footer>
     </footer>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>

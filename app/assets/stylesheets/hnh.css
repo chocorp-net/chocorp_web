@@ -1,0 +1,21 @@
+#xhr_success {
+    color: green;
+    display: none;
+}
+
+#xhr_fail {
+    color: red;
+    display: none;
+}
+
+.vanish {
+    display: block !important;
+    animation-name: vanish;
+    animation-duration: 2s;
+    animation-delay: 5s;
+}
+
+@keyframes vanish {
+    from {opacity: 100%;}
+    to {opacity: 0%;}
+}

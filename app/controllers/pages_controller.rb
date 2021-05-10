@@ -20,10 +20,17 @@ class PagesController < ApplicationController
     ctt = params[:contact]
     msg = params[:content]
     msg_p = "msg"
-    time = Time.new.strftime("%Y-%m-%d_%H:%M:%S.%L.txt")
-    Dir.mkdir(msg_p) unless File.exists?(msg_p)
-    File.open("#{msg_p}/#{time}", "w") { |f|
-      f.write("From: #{ctt}\n#{msg}")
-    }
+    fn = Time.new.strftime("%Y-%m-%d_%H:%M:%S.%L.txt")
+    begin
+      Dir.mkdir(msg_p) unless File.exists?(msg_p)
+      File.open("#{msg_p}/#{fn}", "w") { |f|
+        f.write("From: #{ctt} (#{request.remote_ip})\n#{msg}")
+      }
+    rescue => err
+      if not Rails.env.production?
+        raise err
+      end
+      render status: 500
+    end
   end
 end
