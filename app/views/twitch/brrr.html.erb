@@ -1,0 +1,15 @@
+<%= provide(:title, "3D-printing") %>
+<div id="body-middle">
+  <h1>Hi Twitch!</h1>
+  <div>
+    <p>I recently (Dec. 2020)  bought my first 3D-printer, an Ender 3 from Creality. It will start a stream on Twitch anytime I print something, and post a timelapse on Youtube. I'll also list here the models I'll be making.</p>
+  </div>
+  <hr />
+  <div>
+  <% if @isPrinting %>
+         The printer is currently printing! Check it out <a href="https://www.chocorp.net:8080/#control">here</a>.
+  <% else %>
+    The printer is not busy at the moment.
+  <%end %>
+  </div>
+</div>

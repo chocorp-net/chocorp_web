@@ -1,8 +1,4 @@
 module PagesHelper
-  def active?(a)
-    current_page?(controller: 'pages', action: a) ? ' active' : ''
-  end
-
   # Mods page
   def writeModPage(mod)
     %{

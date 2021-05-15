@@ -1,8 +1,4 @@
 class PagesController < ApplicationController
-  # @ rend les variables visibles pour les vues
-  def nothing
-  end
-
   def mcmods
     am = Mod.new(name: "AuthMod", desc: "AuthMod is an authentication Forge mod which allows modded server owners to accept free versions of Minecraft on their server without wondering about security issues. It forces players to login with a password dedicated to the server.", webpage: "https://www.curseforge.com/minecraft/mc-mods/authmod", logo: "https://github.com/Chocorean/authmod/raw/master/src/main/resources/logo.png")
     mc = Mod.new(name: "MoreCommands", desc: "MoreCommands is a Forge mod that adds a few command to your modded Minecraft server", webpage: "https://www.curseforge.com/minecraft/mc-mods/more-commands-mod", logo: "https://github.com/Chocorean/morecommands/raw/master/src/main/resources/assets/morecommands/textures/logo.png")
@@ -17,14 +13,23 @@ class PagesController < ApplicationController
   end
 
   def hnh_r
-    ctt = params[:contact]
+    blacklist= { "ip" => [ "23.94.148.232"],
+                 "addr" => [ "" ] }
+    ip = request.remote_ip
+    if ip in blacklist["ip"]
+      render status: 500
+    end
+    addr = params[:contact]
+    if addr in blacklist["addr"]
+      render status: 500
+    end
     msg = params[:content]
     msg_p = "msg"
     fn = Time.new.strftime("%Y-%m-%d_%H:%M:%S.%L.txt")
     begin
       Dir.mkdir(msg_p) unless File.exists?(msg_p)
       File.open("#{msg_p}/#{fn}", "w") { |f|
-        f.write("From: #{ctt} (#{request.remote_ip})\n#{msg}")
+        f.write("From: #{addr} (#{ip})\n#{msg}")
       }
     rescue => err
       if not Rails.env.production?

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/' => 'pages#home'
   get '/inteam' => 'pages#inteam'
   get '/tqtmemepas' => 'pages#tqtmemepas'
-  get '/brrr' => 'pages#brrr'
+  get '/brrr' => 'twitch#brrr'
   get '/mcmods' => 'pages#mcmods'
   get '/resume' => 'pages#resume'
   get '/happynothappy' => 'pages#hnh'
