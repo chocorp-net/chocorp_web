@@ -40,3 +40,5 @@ msg/*
 # Fuck vi
 .*.sw[a-p]
 
+# Random
+TODO
