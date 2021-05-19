@@ -19,6 +19,5 @@ RUN RAILS_ENV=production rake db:create
 RUN RAILS_ENV=production rake db:migrate
 RUN RAILS_ENV=production rails assets:precompile
 
-VOLUME /opt/chocorp
 CMD rails s -e production -b 'ssl://0.0.0.0:3000?key=private/cert/www_chocorp_net.key&cert=private/cert/www_chocorp_net.full.crt'
 
