@@ -43,7 +43,7 @@ else
     echo "Found existing container $id"
 fi
 # if container exists but is not running
-rid=$(docker container ps --filter id=$id -q)
+rid=$(docker container ps --filter id=$id -qa)
 if [ -n "$rid" ]
 then
     if [ -n "$res" ]
