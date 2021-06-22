@@ -85,8 +85,17 @@
     color:#4CAF50;
 }
 
-#cv h3, #cv h4 {
+#cv h3, #cv h4, #cv h5 {
     font-weight: bolder;
+}
+
+#cv h5 {
+    font-size: 1rem;
+    text-decoration: underline;
+}
+
+#cv .skills {
+    font-size: .8rem;
 }
 
 #cv .plain {
