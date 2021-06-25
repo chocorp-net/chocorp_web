@@ -31,7 +31,7 @@ docker images | grep $IMAGE > /dev/null
 if [ $? -ne 0 ] || [[ -n "$bld" ]]
 then
     echo "Building image $IMAGE..."
-    docker build . -t $IMAGE
+    docker build . -t $IMAGE --no-cache=true
 fi
 # if container doesn't exist, creates it
 id=$(docker container ps --filter name=$NAME -aq)
