@@ -27,13 +27,19 @@ class TwitchController < ApplicationController
         end
       rescue OpenSSL::SSL::SSLError
         tries -= 1
+      rescue Errno::EHOSTUNREACH
+        return -2
       end
     end
-    raise "Unable to verify target SSL certificate"
+    puts "Unable to verify target SSL certificate"
+    return -1
   end
 
   def printing?
     resp = send_request('/api/connection')
+    if resp.class == Integer
+      return false
+    end
     data = JSON.parse resp.body.gsub('=>', ':')
     data['current']['state'] == 'Printing'
   end
