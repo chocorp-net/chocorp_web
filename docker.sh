@@ -37,7 +37,7 @@ fi
 id=$(docker container ps --filter name=$NAME -aq)
 if [ -z "$id" ]
 then
-    "Creating container $NAME..."
+    echo "Creating container $NAME..."
     id=$(docker container create -p 3000:3000 -v /home/pi/chocorp/msg:/opt/chocorp/msg --name $NAME $IMAGE)
 else
     echo "Found existing container $id"
@@ -49,6 +49,7 @@ then
     if [ -n "$res" ]
     then
         echo "Stopping container $id..."
+        docker exec $id rm /opt/chocorp/tmp/pids/server.pid 2> /dev/null
         docker container stop $id > /dev/null
     fi
     id=$rid
