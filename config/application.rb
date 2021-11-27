@@ -22,7 +22,7 @@ module Chocorp
     # https
     config.hosts << "www.chocorp.net"
     config.hosts << "chocorp.net"
-    config.force_ssl = true
+    config.force_ssl = false
     config.ssl_options = { redirect: { status: 307, port: 443 } }
   end
 end
