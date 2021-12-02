@@ -20,7 +20,6 @@ module Chocorp
     config.middleware.use Rack::Deflater
 
     # hosts
-    config.hosts << "www.chocorp.net"
     config.hosts << "chocorp.net"
 
     # https
