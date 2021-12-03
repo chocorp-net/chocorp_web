@@ -2,7 +2,7 @@ require 'net/http'
 
 class TwitchController < ApplicationController
   @@SECRET = '/private/octoprint/secrets.txt'
-  @@BASE_URL = 'https://www.chocorp.net:8080'
+  @@BASE_URL = 'https://print.chocorp.net'
 
   def load_key
     file = File.open(File.join(Rails.root, @@SECRET), 'r')
@@ -12,7 +12,7 @@ class TwitchController < ApplicationController
   def send_request (route, content='', type='GET', headers={})
     tries = 5
     key = load_key
-    _headers = { "Host" => "www.chocorp.net",
+    _headers = { "Host" => "print.chocorp.net",
                  "X-Api-Key" => "#{load_key}" }
     _headers = _headers.merge(headers)
     uri = URI.parse("#{@@BASE_URL}#{route}")
