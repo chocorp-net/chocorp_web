@@ -16,11 +16,11 @@ class PagesController < ApplicationController
     blacklist= { "ip" => [ "23.94.148.232"],
                  "addr" => [ "" ] }
     ip = request.remote_ip
-    if blacklist["ip"].contains?(ip)
+    if blacklist["ip"].include?(ip)
       render status: 500
     end
     addr = params[:contact]
-    if blacklist["addr"].contains?(addr)
+    if blacklist["addr"].include?(addr)
       render status: 500
     end
     msg = params[:content]
