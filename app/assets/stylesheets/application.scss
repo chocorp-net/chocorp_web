@@ -17,3 +17,7 @@ header {
     border: none;
     box-shadow: none;
 }
+
+.external::after {
+    content: "🔗";
+}
