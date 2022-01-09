@@ -27,7 +27,7 @@
         display: none;
     }
     #cv #left {
-        border-right: 1px solid rgb(64, 64, 64);
+        border-right: 1px solid rgb(106, 106, 106, .25);
         text-align: right;
     }
     #cv #left .row > .col-sm-6:not(:first-child) {
@@ -135,3 +135,8 @@
     font-size: 0.8rem;
     color: rgb(22, 22, 22);
 }
+
+.left {
+    margin-tootm: 1rem;
+}
+
