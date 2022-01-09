@@ -17,4 +17,19 @@ module PagesHelper
     </div>
     }
   end
+
+  # Resume related
+  def writeJobDesc(title, company, website, location, dates, desc)
+    %{
+    <div class="row">
+      <div class="job-title">
+        <p>#{title}</p>
+        <p>#{link_to company, website, target: '_blank'}, #{location}</p>
+        <p>#{dates}</p>
+      </div>
+      <p class="job-desc">&emsp;#{desc}</p>
+    </div>
+    }.html_safe
+  end
+
 end

@@ -36,22 +36,13 @@
         <div id="right" class="col-md-9">
             <div class="row">
                 <h4>About me</h4>
-                <p class="job-desc">&emsp;I'm a French engineer currently looking for something new and exciting to do. My main skills are software development and a good base for cyber security. I currently live in the USA, but I am willing to discover new countries. I will be available around June 2022.</p>
+                <p class="job-desc">&emsp;I am a French IT engineer currently looking for something new and exciting to do. My main skills are software development and a good base for cyber security. I currently live in the USA, but I am willing to discover new countries. I will be available around June 2022.</p>
             </div>
             <div class="row">
                 <h4>Former positions</h4>
-                <div class="row">
-                  <div class="line"><p>Computer Scientist</p><p><a href="https://www.nist.gov">NIST</a>, Gaithersburg, MD</p><p>Jan, 5 2022 - Today</p></div>
-                  <p class="job-desc">&emsp;I am a member of the team dedicated to the <a href="mfc.nist.gov">openMFC challenge</a> sponsored by IARPA. I am working on deepfakes detection, am responsible for generating deepfake datasets on a GPGPU infrastructure, and managing a student from a local university.</p>
-                </div>
-                <div class="row">
-                    <div class="line"><p>Software Engineer</p><p><a href="https://www.nist.gov">NIST</a>, Gaithersburg, MD</p><p>Jan, 5 2020 - Jan, 4 2022</p></div>
-                    <p class="job-desc">&emsp;I was a member of the team dedicated to the <a href="https://actev.nist.gov/">ActEV challenge</a> sponsored by IARPA. I am responsible for maintenance and development of new features for two projects, an abstract CLI that our partners have to implement, then submit to our pipeline, and a scorer software which evaluates our partners software's performance. Aditionnaly, I had to reimagine the CI for the abstract CLI because it became harder to test. I am also responsible for the generation of some ActEV datasets.</p>
-                </div>
-                <div class="row">
-                    <div class="line"><p>Cyber-security trainee</p><p><a href="https://excellium-services.com/">Excellium Services</a>, Contern, Luxembourg</p><p>March, 01 - September, 30 2019</p></div>
-                    <p class="job-desc">&emsp;The goal of the internship was to create from scratch a data leak orchestration tool, which would store any leaked credential of the company's customers, for monitoring purposes. I designed the software as a web API for ease of use by the other tools of the company. I have used an analytical database called <strong>ClickHouse</strong>, which is currently holding billions of leaked credentials and has crazy fast response times. It is currently part of the firm's monitoring offer.</p>
-                </div>
+                <%= writeJobDesc 'Computer Scientist', 'NIST', 'https://www.nist.gov', 'Gaithersburg, MD', 'Jan, 5 2020 - Jan, 4 2022', 'I am a member of the team dedicated to the <a href="mfc.nist.gov">openMFC challenge</a> sponsored by IARPA. I am working on deepfakes detection, am responsible for generating deepfake datasets on a GPGPU infrastructure, and managing a student from a local university.' %>
+                <%= writeJobDesc 'Software Engineer', 'NIST', 'https://www.nist.gov', 'Gaithersburg, MD', 'Jan, 5 2020 - Jan, 4 2022', 'I was a member of the team dedicated to the <a href="https://actev.nist.gov/">ActEV challenge</a> sponsored by IARPA. I am responsible for maintenance and development of new features for two projects, an abstract CLI that our partners have to implement, then submit to our pipeline, and a scorer software which evaluates our partners software\'s performance. Aditionnaly, I had to reimagine the CI for the abstract CLI because it became harder to test. I am also responsible for the generation of some ActEV datasets.' %>
+                <%= writeJobDesc 'Cyber-security trainee', 'Excellium Services', 'https://excellium-services.com/', 'Contern, Luxembourg', 'March, 01 - September, 30 2019', 'The goal of the internship was to create from scratch a data leak orchestration tool, which would store any leaked credential of the company\'s customers, for monitoring purposes. I designed the software as a web API for ease of use by the other tools of the company. I have used an analytical database called <strong>ClickHouse</strong>, which is currently holding billions of leaked credentials and has crazy fast response times. It is currently part of the firm\'s monitoring offer.' %>
             </div>
             <div class="row">
                 <h4>Technical skills</h4>
@@ -85,18 +76,9 @@
             </div>
             <div class="row">
                 <h4>Education</h4>
-                <div class="row">
-                    <div class="line"><p>IT Engineer/Master Degree - Cyber-security major</p><p><a href="https://telecomnancy.univ-lorraine.fr/">Télécom Nancy</a>, Nancy, France</p><p>2016-2019</p></div>
-                    <p class="job-desc">&emsp;Including 11 months of internship, several group projects, such as an Hex game (and its AI), a mini-rust compiler, mini-<a href="https://nmap.org">nmap</a>, or an <a href="http://urbanloop.univ-lorraine.fr/">UrbanLoop</a> network simulator.</p>
-                </div>
-                <div class="row">
-                    <div class="line"><p>French prep school</p><p><a href="http://www.lycee-benjamin-franklin.fr/php5/spip/">Benjamin Franklin</a>, Orléans, France</p><p>2014-2016</p></div>
-                    <p class="job-desc">&emsp;2-year class preparing a competitive entrance examination to engineering schools.</p>
-                </div>
-                <div class="row">
-                  <div class="line"><p>Baccalauréat S</p><p><a href="https://www.legtfrancoisvillon.fr/">Lycée François Villon</a>, Beaugency, France</p><p>2014</p></div>
-                  <p class="job-desc">Scientific bac, major "engineer sciences", Python introduction, with <i>good</i> honors.</p>
-                </div>
+                <%= writeJobDesc 'IT Engineer/Master Degree - Cyber-security major', 'Télécom Nancy', 'https://telecomnancy.univ-lorraine.fr/', 'Nancy, France', '2016-2019', "Including 11 months of internship, several group projects, such as an Hex game (and its AI), a mini-rust compiler, mini-#{link_to 'nmap', 'https://nmap.org'}, or an #{link_to 'UrbanLoop', 'http://urbanloop.univ-lorraine.fr/'} network simulator." %>
+                <%= writeJobDesc 'French prep school', 'Lycée Benjamin Franklin', 'http://www.lycee-benjamin-franklin.fr/php5/spip/', 'Orléans, France', '2014-2016', '2-year class preparing a competitive entrance examination to engineering schools.' %>
+                <%= writeJobDesc 'Baccalauréat S', 'Lycée François Villon', 'https://www.legtfrancoisvillon.fr/', 'Beaugency, France', '2014', 'Scientific bac, major "engineer sciences", Python introduction, with <i>good</i> honors.' %>
             </div>
         </div>
     </div>

@@ -113,30 +113,26 @@
     text-decoration: none;
 }
 
-#cv .line {
+#cv .job-title {
     display: flex;
     justify-content: space-between;
     color: black;
 }
 
-#cv .line p:first-child {
+#cv .job-title p:first-child {
     text-decoration: underline;
 }
 
-#cv .line p:nth-child(2) {
+#cv .job-title p:nth-child(2) {
     font-size: 0.7rem;
 }
 
-#cv .line p:nth-child(3) {
+#cv .job-title p:nth-child(3) {
     font-size: 0.7rem;
 }
 
 #cv .job-desc {
     font-size: 0.8rem;
     color: rgb(22, 22, 22);
-}
-
-.left {
-    margin-tootm: 1rem;
 }
 
