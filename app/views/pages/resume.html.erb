@@ -6,16 +6,16 @@
     <div class="row">
         <div id="left" class="col-md-3">
             <div class="row justify-content-center">
-                <%= image_tag("/cv/img/tete.png", id: 'photo', :alt => "Baptiste CHOCOT") %>
+                <%= image_tag('/cv/img/tete.png', id: 'photo', alt: 'Baptiste CHOCOT') %>
             </div>
             <div class="row left">
                 <h4>Personal information</h4>
                 <div>+1 202-897-7791</div>
-                <p><a href="mailto:baptiste.chocot@gmail.com">baptiste.chocot@gmail.com</a></p>
+                <p><%= link_to 'baptiste.chocot@gmail.com', 'mailto:baptiste.chocot@gmail.com?subject=Hello there!' %>
                 <p>
-                <a href="https://github.com/Chocorean" target="_blank"><%= image_tag("/cv/img/GitHub-Mark-32px.png", class: 'logo', :alt => "GitHub") %></a>
-                    <a href="https://www.root-me.org/?chocot" target="_blank"><img src="https://www.root-me.org/squelettes/img/rblackGrand32.png" alt="RootMe" class="logo"/></a>
-                    <a href="https://linkedin.com/in/baptiste-chocot-82188a149" target="_blank"><img src="https://static.licdn.com/scds/common/u/images/logos/favicons/v1/favicon.ico" alt="LinkedIn" class="logo"/></a>
+                  <%= link_to image_tag('/cv/img/GitHub-Mark-32px.png'), 'https://github/com/Chocorean', target: '_blank', class: 'logo', alt: 'GitHub' %>
+                  <%= link_to image_tag('https://www.root-me.org/squelettes/img/rblackGrand32.png', alt: 'RootMe', class: 'logo'), 'https://www.root-me.org/?chocot', target: '_blank' %>
+                  <%= link_to image_tag('https://static.licdn.com/scds/common/u/images/logos/favicons/v1/favicon.ico', alt: 'LinkedIn', class: 'logo'), 'https://linkedin.com/in/baptiste-chocot-82188a149', target: '_blank' %>
                 </p>
             </div>
             <div class="row left">
@@ -27,8 +27,8 @@
               </div>
               <div class="col-sm-6 col-md-12">
                 <h4>Misc</h4>
-                <p><a href="https://clickhouse.tech/" target="_blank">ClickHouse</a> by Yandex</p>
-                <p>Minecraft modding and <a href="http://files.minecraftforge.net/" target="_blank">Forge</a> API</p>
+                <p><%= link_to 'ClickHouse', 'https://clickhouse.tech/', target: '_blank' %> by Yandex</p>
+                <p>Minecraft modding and <%= link_to 'Forge', 'http://files.minecraftforge.net/', target: '_blank' %></p>
             </div>
           </div>
         </div>
@@ -40,8 +40,8 @@
             </div>
             <div class="row">
                 <h4>Former positions</h4>
-                <%= writeJobDesc 'Computer Scientist', 'NIST', 'https://www.nist.gov', 'Gaithersburg, MD', 'Jan, 5 2020 - Jan, 4 2022', 'I am a member of the team dedicated to the <a href="mfc.nist.gov">openMFC challenge</a> sponsored by IARPA. I am working on deepfakes detection, am responsible for generating deepfake datasets on a GPGPU infrastructure, and managing a student from a local university.' %>
-                <%= writeJobDesc 'Software Engineer', 'NIST', 'https://www.nist.gov', 'Gaithersburg, MD', 'Jan, 5 2020 - Jan, 4 2022', 'I was a member of the team dedicated to the <a href="https://actev.nist.gov/">ActEV challenge</a> sponsored by IARPA. I am responsible for maintenance and development of new features for two projects, an abstract CLI that our partners have to implement, then submit to our pipeline, and a scorer software which evaluates our partners software\'s performance. Aditionnaly, I had to reimagine the CI for the abstract CLI because it became harder to test. I am also responsible for the generation of some ActEV datasets.' %>
+                <%= writeJobDesc 'Computer Scientist', 'NIST', 'https://www.nist.gov', 'Gaithersburg, MD', 'Jan, 5 2020 - Jan, 4 2022', "I am a member of the team dedicated to the #{link_to 'openMFC challenge', 'https://mfc.nist.gov'} sponsored by IARPA. I am working on deepfakes detection, am responsible for generating deepfake datasets on a GPGPU infrastructure, and managing a student from a local university." %>
+                <%= writeJobDesc 'Software Engineer', 'NIST', 'https://www.nist.gov', 'Gaithersburg, MD', 'Jan, 5 2020 - Jan, 4 2022', "I was a member of the team dedicated to the #{link_to 'ActEV challenge', 'https://actev.nist.gov'} sponsored by IARPA. I am responsible for maintenance and development of new features for two projects, an abstract CLI that our partners have to implement, then submit to our pipeline, and a scorer software which evaluates our partners software's performance. Aditionnaly, I had to reimagine the CI for the abstract CLI because it became harder to test. I am also responsible for the generation of some ActEV datasets." %>
                 <%= writeJobDesc 'Cyber-security trainee', 'Excellium Services', 'https://excellium-services.com/', 'Contern, Luxembourg', 'March, 01 - September, 30 2019', 'The goal of the internship was to create from scratch a data leak orchestration tool, which would store any leaked credential of the company\'s customers, for monitoring purposes. I designed the software as a web API for ease of use by the other tools of the company. I have used an analytical database called <strong>ClickHouse</strong>, which is currently holding billions of leaked credentials and has crazy fast response times. It is currently part of the firm\'s monitoring offer.' %>
             </div>
             <div class="row">

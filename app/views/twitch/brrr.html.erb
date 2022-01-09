@@ -7,7 +7,7 @@
   <hr />
   <div>
   <% if @isPrinting %>
-         The printer is currently printing! Check it out <a href="https://www.chocorp.net:8080/#control">here</a> (guest/guest).
+    The printer is currently printing! Check it out <%= link_to 'here', 'https://print.chocorp.net/#control' %> (credentials: guest/guest).
   <% else %>
     The printer is not busy at the moment.
   <%end %>

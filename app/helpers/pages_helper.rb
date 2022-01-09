@@ -15,7 +15,7 @@ module PagesHelper
         </div>
       </a>
     </div>
-    }
+    }.html_safe
   end
 
   # Resume related
@@ -31,5 +31,5 @@ module PagesHelper
     </div>
     }.html_safe
   end
-
 end
+

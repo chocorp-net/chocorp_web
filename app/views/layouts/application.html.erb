@@ -5,7 +5,7 @@
       if content_for?(:title) then
         "#{yield :title} | Chocorp"
       else
-        "Chocorp"
+        'Chocorp'
       end
       %></title>
     <meta charset="utf-8">
@@ -24,11 +24,11 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= if content_for(:title) then
       case "#{yield :title}"
-      when "Mods"
+      when 'Mods'
         stylesheet_link_tag 'mcmods'
-      when "Resume"
+      when 'Resume'
         stylesheet_link_tag 'cv'
-      when "Feedback"
+      when 'Feedback'
         stylesheet_link_tag 'hnh'
       end
     end
@@ -40,9 +40,7 @@
 
   <body>
     <header class="navbar navbar-expand-md navbar-dark bd-navbar">
-      <a class="navbar-brand mr-0 mr-sm-2" href="/">
-        <%= image_tag 'icon.svg', class: 'd-block', alt: "chocorp.net" %>
-      </a>
+      <%= link_to image_tag('icon.svg', class: 'd-block', alt: 'chocorp.net'), root_path %>
       <button id="hamburger" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#headerNavbar" aria-controls="headerNavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -50,29 +48,29 @@
         <div class="navbar-nav-scroll">
           <ul class="navbar-nav flex-row flex-wrap bd-navbar-nav pt-2 py-md-0">
             <li class="nav-item col-6 col-md-auto">
-              <%= link_to "Home", root_path, :class => "nav-link" + active?('home') %>
+              <%= link_to 'Home', root_path, class: 'nav-link' + active?('home') %>
             </li>
             <li class="nav-item col-6 col-md-auto">
-              <%= link_to "3d-printing stream", brrr_path, :class => "nav-link" + active?('brrr') %>
+              <%= link_to '3d-printing stream', brrr_path, class: 'nav-link' + active?('brrr') %>
             </li>
           </ul>
         </div>
         <div class="navbar-nav-scroll">
           <ul class="navbar-nav flex-row flex-wrap bd-navbar-nav pt-2 py-md-0">
             <li class="nav-item col-6 col-md-auto">
-              <%= link_to "Mods", mcmods_path, :class => "nav-link" + active?('mcmods') %>
+              <%= link_to 'Mods', mcmods_path, class: 'nav-link' + active?('mcmods') %>
             </li>
             <li class="nav-item col-6 col-md-auto">
-              <%= link_to "Resume", resume_path, :class => "nav-link" + active?('resume') %>
+              <%= link_to 'Resume', resume_path, class: 'nav-link' + active?('resume') %>
             </li>
           </ul>
         </div>
         <ul class="navbar-nav flex-row flex-wrap bd-navbar-nav pt-2 py-md-0 ms-md-auto">
           <li class="nav-item col-6 col-md-auto">
-            <%= link_to "Contact", happynothappy_path, :class => "nav-link" + active?('hnh') %>
+            <%= link_to 'Contact', happynothappy_path, class: 'nav-link' + active?('hnh') %>
           </li>
           <li class="nav-item col-6 col-md-auto">
-            <a href="https://print.chocorp.net" class="nav-link external">Chocoprint</a>
+            <%= link_to 'Chocoprint', 'https://print.chocorp.net', class: 'nav-link external' %>
           </li>
         </ul>
       </div>
@@ -84,3 +82,4 @@
     </footer>
   </body>
 </html>
+
