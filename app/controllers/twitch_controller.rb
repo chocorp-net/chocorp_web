@@ -31,7 +31,7 @@ class TwitchController < ApplicationController
         return -2
       end
     end
-    puts "Unable to verify target SSL certificate"
+    warn "Unable to verify target SSL certificate"
     return -1
   end
 
@@ -44,7 +44,17 @@ class TwitchController < ApplicationController
     data['current']['state'] == 'Printing'
   end
 
+  def job_name
+    resp = send_request '/api/job'
+    if resp.class == Integer
+      return false
+    end
+    data = JSON.parse resp.body.gsub '=>', ':'
+    data['job']['file']['name']
+  end
+
   def brrr
-    @isPrinting = printing?
+    @is_printing = printing?
+    @job_name = job_name
   end
 end
