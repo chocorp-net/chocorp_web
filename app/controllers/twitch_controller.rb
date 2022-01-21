@@ -37,24 +37,31 @@ class TwitchController < ApplicationController
 
   def printing?
     resp = send_request('/api/connection')
-    if resp.class == Integer
-      return false
-    end
+    return false if resp.class == Integer
+
     data = JSON.parse resp.body.gsub('=>', ':')
     data['current']['state'] == 'Printing'
   end
 
+  def alive?
+    resp = send_request('/api/connection')
+    return false if resp.class == Integer
+
+    data = JSON.parse resp.body.gsub('=>', ':')
+    data['current']['state'] != 'Closed'
+  end
+
   def job_name
     resp = send_request '/api/job'
-    if resp.class == Integer
-      return false
-    end
+    return false if resp.class == Integer
+
     data = JSON.parse resp.body.gsub '=>', ':'
     data['job']['file']['name']
   end
 
   def brrr
     @is_printing = printing?
+    @is_alive = alive?
     @job_name = job_name
   end
 end

@@ -8,8 +8,10 @@
   <div>
   <% if @is_printing %>
     The printer is currently printing <strong><%= "#{@job_name} " %></strong>! Check it out <%= link_to 'here', 'https://print.chocorp.net/#control' %> (credentials: guest/guest).
+  <% elsif ! @is_alive %>
+    The printer is likely off.
   <% else %>
     The printer is not busy at the moment.
-  <%end %>
+  <% end %>
   </div>
 </div>
