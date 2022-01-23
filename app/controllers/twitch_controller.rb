@@ -56,7 +56,7 @@ class TwitchController < ApplicationController
     return false if resp.class == Integer
 
     data = JSON.parse resp.body.gsub '=>', ':'
-    data['job']['file']['name']
+    data['job']['file']['name'].split('.')[0]
   end
 
   def brrr
