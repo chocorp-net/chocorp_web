@@ -6,8 +6,8 @@
 #cv {
     color: rgb(106, 106, 106);
     font-family: cvfont;
-    margin-left: 15%;
-    width: 70%;
+    margin-left: 0;
+    width: 100%;
     text-align: center;
     background-color: #f6f8fa;
     padding: .8rem;
@@ -26,10 +26,17 @@
     .v-sep {
         display: none;
     }
+
+    #cv {
+        width: 70%;
+        margin-left: 15%;
+    }
+
     #cv #left {
         border-right: 1px solid rgb(106, 106, 106, .25);
         text-align: right;
     }
+
     #cv #left .row > .col-sm-6:not(:first-child) {
         padding-top: .5rem;
     }
