@@ -21,7 +21,7 @@ class PagesController < ApplicationController
     begin
       Dir.mkdir(msg_p) unless File.exists?(msg_p)
       File.open("#{msg_p}/#{fn}", "w") { |f|
-        f.write("From: #{addr} (#{ip})\n#{msg}")
+        f.write("From: #{addr}\n#{msg}")
       }
     rescue => err
       if not Rails.env.production?
