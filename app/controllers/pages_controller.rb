@@ -21,10 +21,12 @@ class PagesController < ApplicationController
     uri = URI.parse('https://www.google.com/recaptcha/api/siteverify')
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
-    request = Net::HTTP::Post.new(uri.path, {'Content-Type' => 'application/json'})
-    request.body = {'secret' => secret, 'response' => resp}.to_json
+    request = Net::HTTP::Post.new(uri.path, {'Content-Type' => 'application/x-www-form-urlencoded'})
+    request.body = "secret=#{secret}&response=#{resp}"
     response = http.request(request)
-    puts response
+    if JSON.parse(response.body)['success'] != true
+      render status: 400
+    end
 
     addr = params[:contact]
     msg = params[:content]
