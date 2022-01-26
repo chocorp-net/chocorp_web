@@ -22,7 +22,7 @@
       </div>
     </div><br />
     <div class="form-group">
-      <%=form.submit "Send", id: "hnh_button", class: "offset-sm-2" %>
+      <button id="hnh_button" class="g-recaptcha btn btn-success offset-sm-2" data-sitekey="6LeEsDkeAAAAAIaxjSazz6Y02zXxfRs_XeyP0rAO" data-callback='onSubmit' data-action='submit'>Send</button>
     </div>
   <% end %>
   <div class="row">
@@ -33,3 +33,10 @@
   </div>
 </div>
 <%= javascript_pack_tag "hnh" %>
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<script>
+function onSubmit(token) {
+  document.getElementById("feedbck_form").submit();
+}
+</script>
+
