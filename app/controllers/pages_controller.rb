@@ -1,3 +1,5 @@
+require 'net/http'
+
 class PagesController < ApplicationController
   def mcmods
     am = Mod.new(name: "AuthMod", desc: "AuthMod is an authentication Forge mod which allows modded server owners to accept free versions of Minecraft on their server without wondering about security issues. It forces players to login with a password dedicated to the server.", webpage: "https://www.curseforge.com/minecraft/mc-mods/authmod", logo: "https://raw.githubusercontent.com/Chocorean/authmod/main/src/main/resources/logo.png")
@@ -13,7 +15,17 @@ class PagesController < ApplicationController
   end
 
   def hnh_r
-    puts params['g-recaptcha-response']
+    # reCAPTCHA
+    resp = params['g-recaptcha-response']
+    secret = ENV['CAPTCHA_SECRET']
+    uri = URI.parse('https://www.google.com/recaptcha/api/siteverify')
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+    request = Net::HTTP::Post.new(uri.path, {'Content-Type' => 'application/json'})
+    request.body = {'secret' => secret, 'response' => resp}.to_json
+    response = http.request(request)
+    puts response
+
     addr = params[:contact]
     msg = params[:content]
     msg_p = "msg"
