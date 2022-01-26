@@ -13,16 +13,8 @@ class PagesController < ApplicationController
   end
 
   def hnh_r
-    blacklist= { "ip" => [ "23.94.148.232"],
-                 "addr" => [ "" ] }
-    ip = request.remote_ip
-    if blacklist["ip"].include?(ip)
-      render status: 500
-    end
+    puts params['g-recaptcha-response']
     addr = params[:contact]
-    if blacklist["addr"].include?(addr)
-      render status: 500
-    end
     msg = params[:content]
     msg_p = "msg"
     fn = Time.new.strftime("%Y-%m-%d_%H:%M:%S.%L.txt")
