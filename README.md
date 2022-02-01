@@ -1,24 +1,57 @@
-# README
+# chocorp.net
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![ruby version](https://img.shields.io/badge/Ruby%20version-2.7.0-red)
+![issues](https://img.shields.io/github/issues/chocorp-net/chocorp_web)
+![hardware](https://img.shields.io/badge/Running on-Raspberry%20PI%204-green)
 
-Things you may want to cover:
+## Install
 
-* Ruby version
+1. Clone
 
-* System dependencies
+```bash
+git clone git@github.com:chocorp-net/chocorp_web.git
+```
+2. Ruby version and dependencies, NodeJS
 
-* Configuration
+`chocorp_web` uses Ruby 2.7.0, and RVM to manage depencencies. First install `ruby-2.7.0` then cd into the project. RVM should handle the rest.
 
-* Database creation
+```bash
+rvm install ruby-2.7.0
+cd chocorp_web
+# RVM does its stuff
+which bundle  # $HOME/.rvm/rubies/ruby-2.7.0/bin/bundle
+bundle install
+```
 
-* Database initialization
+As it is a Rails 6 project, you will need to install `node` and `yarn`.
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+3. Rails
 
-* Deployment instructions
+  1. Development
 
-* ...
+First let's setup the database.
+
+```bash
+bin/rails db:create
+bun/rails db:migrate
+```
+
+Ready to go!
+
+  2. Production
+
+Generate a new secret (make sure EDITOR is set).
+
+```bash
+rm config/credentials.yml.enc
+bin/rails credentials:edit
+```
+
+Compile the assets.
+
+```bash
+bin/rails assets:precompile
+```
+
+Good to go!
