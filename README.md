@@ -27,8 +27,17 @@ As it is a Rails 6 project, you will need to install `node` and `yarn`.
 
 
 3. Rails
+  1. Configuration
 
-  1. Development
+It will need a few configuration before we actually run it. It is going to need octoprint secrets. I also put my certificates here.
+
+```bash
+cp -r private_examples private
+# Edit the path of your certificates
+vim start_prod.sh
+```
+
+  2. Development
 
 First let's setup the database.
 
@@ -39,7 +48,7 @@ bun/rails db:migrate
 
 Ready to go!
 
-  2. Production
+  3. Production
 
 Generate a new secret (make sure EDITOR is set).
 
