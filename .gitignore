@@ -35,7 +35,7 @@ yarn-debug.log*
 .yarn-integrity
 
 # Private stuff
-private/*
+private
 msg/*
 
 # Fuck vi
