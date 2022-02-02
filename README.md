@@ -43,7 +43,11 @@ First let's setup the database.
 
 ```bash
 bin/rails db:create
-bun/rails db:migrate
+bin/rails db:migrate
+# If it doesn't do anything:
+bin/rails db:migrate:redo
+# Finally we populate the db
+bin/rails db:seed
 ```
 
 Ready to go!
@@ -62,5 +66,7 @@ Compile the assets.
 ```bash
 bin/rails assets:precompile
 ```
+
+I also had to go through all steps for setting up the database, prefixed with `RAILS_ENV=production`.
 
 Good to go!
