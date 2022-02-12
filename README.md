@@ -6,7 +6,9 @@
 
 ## Install
 
-1. Clone
+1. Setup
+
+This project relies on [tmux](https://github.com/tmux/tmux) and [rvm](https://rvm.io/)
 
 ```bash
 git clone git@github.com:chocorp-net/chocorp_web.git
@@ -29,12 +31,10 @@ As it is a Rails 6 project, you will need to install `node` and `yarn`.
 3. Rails
   1. Configuration
 
-It will need a few configuration before we actually run it. It is going to need octoprint secrets. I also put my certificates here.
+It will need a few configuration before we actually run it. It is going to need octoprint secrets.
 
 ```bash
 cp -r private_examples private
-# Edit the path of your certificates
-vim start_prod.sh
 ```
 
   2. Development
@@ -69,4 +69,8 @@ bin/rails assets:precompile
 
 I also had to go through all steps for setting up the database, prefixed with `RAILS_ENV=production`.
 
-Good to go!
+4. Launch the app
+
+The tmux script takes a single argument. If set, it will start the web server in development mode, if empty in production mode.
+
+`./run.sh [random]  # ezpz`
