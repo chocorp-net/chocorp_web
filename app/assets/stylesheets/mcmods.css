@@ -22,3 +22,29 @@
 	color: #4CAF50;
 }
 
+#mods .flex-center {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+#mods .mod-desc span{
+	display: none;
+}
+
+#mods .mod-desc {
+	text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+	#mods .flex-center {
+		display: initial;
+	}
+	#mods .mod-desc span {
+		display: initial;
+	}
+	#mods .mod-desc {
+		text-align: initial;
+	}
+
+}
