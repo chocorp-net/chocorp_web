@@ -1,6 +1,40 @@
 require 'net/http'
 
 class TwitchController < ApplicationController
+  private
+
+  # GET /brrr
+  def brrr
+    @is_printing = printing?
+    @is_alive = alive?
+    @job_name = job_name
+  end
+
+  #################
+  # Boolean getters
+  def printing?
+    data = '/api/connection'
+    data['current']['state'] == 'Printing'
+  end
+
+  def alive?
+    data = get '/api/connection'
+    data['current']['state'] != 'Closed'
+  end
+
+  def job_name
+    data = get '/api/job'
+    data['job']['file']['name'].split('.')[0]
+  end
+  #################
+
+  # Internal stuff
+  def get(route)
+    resp = send_request route
+    return false if resp.class == Integer or data.has_key?('error')
+
+    return JSON.parse resp.body.gsub('=>', ':')
+  end
 
   def send_request (route, content='', type='GET', headers={})
     tries = 5
@@ -28,41 +62,5 @@ class TwitchController < ApplicationController
     end
     warn "Unable to verify target SSL certificate"
     return -1
-  end
-
-  def printing?
-    resp = send_request('/api/connection')
-    return false if resp.class == Integer
-
-    data = JSON.parse resp.body.gsub('=>', ':')
-    return false if data.has_key? 'error'
-
-    data['current']['state'] == 'Printing'
-  end
-
-  def alive?
-    resp = send_request('/api/connection')
-    return false if resp.class == Integer
-
-    data = JSON.parse resp.body.gsub('=>', ':')
-    return false if data.has_key? 'error'
-
-    data['current']['state'] != 'Closed'
-  end
-
-  def job_name
-    resp = send_request '/api/job'
-    return false if resp.class == Integer
-
-    data = JSON.parse resp.body.gsub '=>', ':'
-    return false if data.has_key? 'error'
-
-    data['job']['file']['name'].split('.')[0]
-  end
-
-  def brrr
-    @is_printing = printing?
-    @is_alive = alive?
-    @job_name = job_name
   end
 end
