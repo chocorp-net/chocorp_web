@@ -1,21 +1,16 @@
 require 'net/http'
 
 class TwitchController < ApplicationController
-  @@SECRET = '/private/octoprint/secrets.txt'
-  @@BASE_URL = 'https://print.chocorp.net'
-
-  def load_key
-    file = File.open(File.join(Rails.root, @@SECRET), 'r')
-    file.read.split[0].split('=')[1]
-  end  
 
   def send_request (route, content='', type='GET', headers={})
     tries = 5
-    key = load_key
-    _headers = { "Host" => "print.chocorp.net",
-                 "X-Api-Key" => "#{load_key}" }
+    key = ENV['OCTOPRINT_APIKEY']
+    url = ENV['OCTOPRINT_URL']
+    host = url.include?('://') ? url.split('://')[1] : url
+    _headers = { "Host" => host,
+                 "X-Api-Key" => key }
     _headers = _headers.merge(headers)
-    uri = URI.parse("#{@@BASE_URL}#{route}")
+    uri = URI.parse("#{url}#{route}")
     while tries > 0
       begin
         Net::HTTP.start(uri.host, uri.port, :use_ssl => true) do |http|
@@ -40,6 +35,8 @@ class TwitchController < ApplicationController
     return false if resp.class == Integer
 
     data = JSON.parse resp.body.gsub('=>', ':')
+    return false if data.has_key? 'error'
+
     data['current']['state'] == 'Printing'
   end
 
@@ -48,6 +45,8 @@ class TwitchController < ApplicationController
     return false if resp.class == Integer
 
     data = JSON.parse resp.body.gsub('=>', ':')
+    return false if data.has_key? 'error'
+
     data['current']['state'] != 'Closed'
   end
 
@@ -56,6 +55,8 @@ class TwitchController < ApplicationController
     return false if resp.class == Integer
 
     data = JSON.parse resp.body.gsub '=>', ':'
+    return false if data.has_key? 'error'
+
     data['job']['file']['name'].split('.')[0]
   end
 

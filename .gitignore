@@ -41,7 +41,7 @@ msg/*
 # Fuck vi
 .*.sw[a-p]
 
-# Random
-TODO
+# local conf
+config.env
 
 /config/master.key

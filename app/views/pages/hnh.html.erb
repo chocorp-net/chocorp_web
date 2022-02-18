@@ -22,7 +22,7 @@
       </div>
     </div><br />
     <div class="form-group">
-      <button id="hnh_button" class="g-recaptcha btn btn-success offset-sm-2" data-sitekey="6LeEsDkeAAAAAIaxjSazz6Y02zXxfRs_XeyP0rAO" data-callback='onSubmit' data-action='submit'>Send</button>
+      <button id="hnh_button" class="g-recaptcha btn btn-success offset-sm-2" data-sitekey="<%= ENV['CAPTCHA_SITEKEY'] %>" data-callback='onSubmit' data-action='submit'>Send</button>
     </div>
   <% end %>
   <div class="row">

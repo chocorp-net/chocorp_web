@@ -1,5 +1,8 @@
 #!/bin/bash
 
+CW=$(dirname $(realpath $0))
+source $CW/credentials.env
+
 if [[ -n $1 ]]; then
   env='development'
 else
@@ -18,7 +21,7 @@ tmux send-keys -t $session:0 'tail -f /var/log/nginx/error.log' C-m
 
 # Web server, htop and logs
 tmux new-window -t $session:1 -n 'rails'
-tmux send-keys -t $session:1 'RAILS_ENV=$env puma -b unix:///home/pi/chocorp_web/tmp/sockets/puma.sock' C-m
+tmux send-keys -t $session:1 "source config.env; ./bin/rails assets:precompile; puma -b unix:///home/pi/chocorp_web/tmp/sockets/puma.sock -e $env" C-m
 tmux split-window -t $session:1 -v
 tmux send-keys -t $session:1 "tail -f log/$env.log" C-m
 tmux selectp -t $session:1.0
