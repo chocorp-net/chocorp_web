@@ -1,9 +1,9 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
-  def active?(a)
-    begin
-      current_page?({controller: 'pages', action: a}) ? ' active' : ''
-    rescue
-      current_page?({controller: 'twitch', action: a}) ? ' active' : ''
-    end
+  def active?(action)
+    current_page?({ controller: 'pages', action: action }) ? ' active' : ''
+  rescue StandardError
+    current_page?({ controller: 'twitch', action: action }) ? ' active' : ''
   end
 end

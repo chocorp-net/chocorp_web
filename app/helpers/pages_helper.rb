@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 module PagesHelper
   # Mods page
-  def writeModPage(mod)
-    %{
+  def write_mod_page(mod)
+    %(
     <div class="mod">
       <a href="#{mod.webpage}" target="_blank">
         <div class="row">
@@ -15,21 +17,20 @@ module PagesHelper
         </div>
       </a>
     </div>
-    }.html_safe
+    ).html_safe
   end
 
   # Resume related
-  def writeJobDesc(title, company, website, location, dates, desc)
-    %{
+  def write_job_desc(title, company, website, location, dates, desc)
+    %(
     <div class="row">
       <div class="job-title">
         <p>#{title}</p>
-        <p>#{link_to company, website, target: '_blank'}, #{location}</p>
+        <p>#{link_to company, website, target: '_blank', rel: 'noopener'}, #{location}</p>
         <p>#{dates}</p>
       </div>
       <p class="job-desc">&emsp;#{desc}</p>
     </div>
-    }.html_safe
+    ).html_safe
   end
 end
-

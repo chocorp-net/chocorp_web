@@ -5,7 +5,7 @@
     <%=
       buffer = []
       for mod in @mods do
-        buffer.append(writeModPage(mod))
+        buffer.append(write_mod_page(mod))
       end
       buffer.join("\n").html_safe
     %>

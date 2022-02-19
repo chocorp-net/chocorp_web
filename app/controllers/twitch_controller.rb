@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'net/http'
 
 class TwitchController < ApplicationController
@@ -31,36 +33,36 @@ class TwitchController < ApplicationController
   # Internal stuff
   def get(route)
     resp = send_request route
-    return false if resp.class == Integer or data.has_key?('error')
+    return false if resp.instance_of?(Integer) || data.key?('error')
 
-    return JSON.parse resp.body.gsub('=>', ':')
+    JSON.parse resp.body.gsub('=>', ':')
   end
 
-  def send_request (route, content='', type='GET', headers={})
+  def send_request(route, _content = '', type = 'GET', headers = {})
     tries = 5
     key = ENV['OCTOPRINT_APIKEY']
     url = ENV['OCTOPRINT_URL']
     host = url.include?('://') ? url.split('://')[1] : url
-    _headers = { "Host" => host,
-                 "X-Api-Key" => key }
-    _headers = _headers.merge(headers)
+    headers = { 'Host' => host,
+                'X-Api-Key' => key }.merge(headers)
     uri = URI.parse("#{url}#{route}")
-    while tries > 0
+    while tries.positive?
       begin
-        Net::HTTP.start(uri.host, uri.port, :use_ssl => true) do |http|
+        Net::HTTP.start(uri.host, uri.port, use_ssl: true) do |http|
           case type
           when 'GET'
-            req = Net::HTTP::Get.new(uri.request_uri, initheader=_headers)
+            req = Net::HTTP::Get.new(uri.request_uri, headers)
           end
           return http.request req
         end
       rescue OpenSSL::SSL::SSLError
         tries -= 1
       rescue Errno::EHOSTUNREACH
-        return -2
+        warn 'Host unreachable'
+        return 2
       end
     end
-    warn "Unable to verify target SSL certificate"
-    return -1
+    warn 'Unable to verify target SSL certificate'
+    1
   end
 end
