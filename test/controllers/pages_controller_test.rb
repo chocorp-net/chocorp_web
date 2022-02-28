@@ -3,9 +3,18 @@
 require 'test_helper'
 
 class PagesControllerTest < ActionDispatch::IntegrationTest
-  test 'should get home' do
-    get pages_home_url
+  test 'GET /' do
+    get home_path
     assert_response :success
   end
 
+  test 'GET /mcmods' do
+    get mcmods_path
+    assert_response :success
+  end
+
+  test 'GET /resume' do
+    get resume_path
+    assert_response :success
+  end
 end
