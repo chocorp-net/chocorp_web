@@ -2,7 +2,7 @@
 
 ![ruby version](https://img.shields.io/badge/Ruby%20version-2.7.0-red)
 ![issues](https://img.shields.io/github/issues/chocorp-net/chocorp_web)
-![hardware](https://img.shields.io/badge/Running on-Raspberry%20PI%204-green)
+![hardware](https://img.shields.io/badge/Raspberry%20PI%204-cd2355)
 
 ## Install
 
