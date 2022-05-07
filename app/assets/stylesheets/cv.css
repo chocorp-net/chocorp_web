@@ -33,7 +33,7 @@
     }
 
     #cv #left {
-        border-right: 1px solid rgb(106, 106, 106, .25);
+        border-right: 1px solid rgba(106, 106, 106, .25);
         text-align: right;
     }
 
