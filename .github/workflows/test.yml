@@ -18,7 +18,6 @@ jobs:
           node-version: "10"
       - name: Setup application
         env:
-          BUNDLE_GEMFILE: ../../Gemfile
           RAILS_ENV: test
         run: |
           yarn install
