@@ -40,8 +40,8 @@ class TwitchController < ApplicationController
 
   def send_request(route, _content = '', type = 'GET', headers = {})
     tries = 5
-    key = ENV['OCTOPRINT_APIKEY']
-    url = ENV['OCTOPRINT_URL']
+    key = ENV.fetch('OCTOPRINT_APIKEY', nil)
+    url = ENV.fetch('OCTOPRINT_URL', nil)
     host = url.include?('://') ? url.split('://')[1] : url
     headers = { 'Host' => host,
                 'X-Api-Key' => key }.merge(headers)

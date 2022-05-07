@@ -18,7 +18,7 @@ class PagesController < ApplicationController
   def hnh_r
     # reCAPTCHA
     resp = params['g-recaptcha-response']
-    secret = ENV['CAPTCHA_SECRET']
+    secret = ENV.fetch('CAPTCHA_SECRET', nil)
     uri = URI.parse('https://www.google.com/recaptcha/api/siteverify')
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
