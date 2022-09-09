@@ -1,5 +1,7 @@
 <%= provide(:title, 'Feedback') %>
 <div id="body-middle">
+  WIP
+  <!-- 
   <h1>Wanna say something? That's the place to be.</h1><hr /><br />
   <%= form_with url: "/happynothappy", id: "feedback_form", method: :post, local: false do |form| %>
     <div class="row form-group">
@@ -31,12 +33,6 @@
   <div class="row">
     <div id="xhr_fail" class="offset-sm-2">An issue happened. Please try again later.</div>
   </div>
+  -->
 </div>
-<%= javascript_pack_tag "hnh" %>
 <script src="https://www.google.com/recaptcha/api.js"></script>
-<script>
-function onSubmit(token) {
-  document.getElementById("feedback_form").submit();
-}
-</script>
-
