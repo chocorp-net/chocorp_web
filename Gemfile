@@ -27,6 +27,7 @@ group :test do
     gem "capybara", "~> 3.37"
     gem "selenium-webdriver"
     gem "webdrivers"
+    gem "rspec"
 end
 
 gem "sass-rails", "~> 6.0"
