@@ -28,6 +28,8 @@ group :test do
     gem "selenium-webdriver"
     gem "webdrivers"
     gem "rspec"
+    gem "rubocop"
+    gem "rubocop-rails"
 end
 
 gem "sass-rails", "~> 6.0"
