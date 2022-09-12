@@ -1,0 +1,16 @@
+{
+  "name": "chocorp",
+  "private": true,
+  "version": "0.1.0",
+  "dependencies": {
+    "@hotwired/stimulus": "^3.0.1",
+    "@hotwired/turbo-rails": "^7.0.4",
+    "esbuild": "^0.14.38",
+    "sass": "^1.51.0",
+    "yarn": "^1.22.18"
+  },
+  "scripts": {
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --watch",
+    "build:css": "sass ./app/assets/stylesheets/application.scss ./app/assets/builds/application.css --no-source-map --load-path=node_modules --watch"
+  }
+}
