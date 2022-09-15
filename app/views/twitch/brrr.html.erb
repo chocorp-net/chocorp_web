@@ -4,7 +4,7 @@
   <div>
     <p>I recently (Dec. 2020)  bought my first 3D-printer, an Ender 3 from Creality. It will start a stream on Twitch anytime I print something, and post a timelapse on Youtube. I'll also list here the models I'll be making.</p>
   </div>
-  <hr />
+  <br />
   <div>
   <% if @is_printing %>
     The printer is currently printing <strong><%= "#{@job_name} " %></strong>! Check it out <%= link_to 'here', 'https://print.chocorp.net/#control' %> (credentials: guest/guest).
@@ -13,5 +13,12 @@
   <% else %>
     The printer is not busy at the moment.
   <% end %>
+  </div>
+  <hr />
+  <h4>Youtube corner - WIP</h4>
+  <div class="row">
+    <div class="col-6">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/txHBOYy_VAY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
   </div>
 </div>
