@@ -39,3 +39,6 @@ node_modules/
 /config/master.key
 /config/credentials.yml.enc
 /config.env
+
+# Vim
+*.sw[a-p]
